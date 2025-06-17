@@ -29,7 +29,7 @@ export default function Sidebar() {
   const pathname = usePathname();
 
   return (
-    <div className="w-full h-screen md:w-[300px] bg-white p-6 flex flex-col shadow-xl">
+    <aside className="w-full h-screen md:w-[300px] bg-white p-6 flex flex-col shadow-md">
       {/* Logo */}
       <div className="flex items-center justify-between mb-6">
         <Image
@@ -84,6 +84,6 @@ export default function Sidebar() {
           </button>
         </div>
       </nav>
-    </div>
+    </aside>
   );
 }

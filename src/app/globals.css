@@ -17,8 +17,9 @@
   --color-black-primary: #404040;
   --color-black-secondary: #505050;
   --color-yellow-primary: #ffde59;
+  --color-yellow-secondary: #fff5cc;
   --color-hover-link: #f0f4f8;
-  --color-gray-background: #F3F6F7;
+  --color-gray-background: #f3f6f7;
 }
 
 @media (prefers-color-scheme: dark) {

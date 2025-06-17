@@ -6,7 +6,7 @@ import React from "react";
 
 export default function Dashboard() {
   return (
-    <div className="flex flex-col md:flex-row min-h-screen bg-gray-100">
+    <div className="flex flex-col md:flex-row">
       {/* Main Content */}
       <div className="flex-1 p-6">
         {/* Stats */}

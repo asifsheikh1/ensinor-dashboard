@@ -4,7 +4,7 @@ import { IoMenuOutline } from "react-icons/io5";
 
 export default function TopBar() {
   return (
-    <div className="w-full h-[80px] bg-white px-6 flex justify-between items-center shadow-xl">
+    <section className="w-full h-[80px] bg-white px-6 flex justify-between items-center shadow-md">
       <h2 className="text-[32px] font-bold text-black-primary flex items-center gap-2">
         <IoMenuOutline className="text-5xl" />
         <span>Settings</span>
@@ -19,6 +19,6 @@ export default function TopBar() {
           className="w-12 h-12 rounded-full"
         />
       </div>
-    </div>
+    </section>
   );
 }
