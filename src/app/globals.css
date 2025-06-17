@@ -12,6 +12,15 @@
   --font-mono: var(--font-geist-mono);
 }
 
+@theme {
+  --color-black-normal: #262626;
+  --color-black-primary: #404040;
+  --color-black-secondary: #505050;
+  --color-yellow-primary: #ffde59;
+  --color-hover-link: #f0f4f8;
+  --color-gray-background: #F3F6F7;
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
