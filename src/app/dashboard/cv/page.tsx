@@ -6,7 +6,7 @@ import SectionHeader from '@/components/SectionHeader'
 import React, { useState } from 'react'
 
 export default function CV() {
-  const [activeTab, setActiveTab] = useState<string>('Experience');
+  const [activeTab, setActiveTab] = useState<string>('Education');
 
   return (
     <div className='p-6 space-y-6'>

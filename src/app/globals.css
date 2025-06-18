@@ -18,8 +18,12 @@
   --color-black-secondary: #505050;
   --color-yellow-primary: #ffde59;
   --color-yellow-secondary: #fff5cc;
+  --color-yellow-hover: oklch(79.5% 0.184 86.047);
   --color-hover-link: #f0f4f8;
   --color-gray-background: #f3f6f7;
+  --color-gray-border: #b4b4b4;
+  --color-placeholder-text: #606060;
+  --color-popup-overlay: #03030362;
 }
 
 @media (prefers-color-scheme: dark) {
