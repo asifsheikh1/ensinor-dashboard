@@ -38,4 +38,29 @@ export interface QuizTypes {
   duration: string;
   attendance: number;
   answeringStatus: "not answered" | "answered";
+  percentage?: number;
+}
+
+export interface StateTypes {
+    title: string;
+    mainText: string;
+    subText: string;
+    percentage?: number;
+}
+
+export interface QuizInGradeTypes {
+  quizName: string;
+  instructorName: string;
+  totalQuestion: number;
+  percentage: number;
+  date: string;
+  answeringStatus: string;
+  grade: string;
+}
+
+export interface CertificateTypes {
+  certificateName: string;
+  instructorName: string;
+  date: string;
+  courseProgress?: number;
 }

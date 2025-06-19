@@ -12,7 +12,7 @@ export default function CourseCard({ courseData, bgColor }: CourseCardProps) {
     <div
       className={`${
         bgColor ? `bg-${bgColor}` : "bg-gray-background"
-      } p-6 rounded-xl space-y-4`}
+      } p-3 md:p-6 rounded-xl space-y-4`}
     >
       <Image
         src="/images/dashboard/course-card.jpg"

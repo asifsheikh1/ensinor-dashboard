@@ -21,6 +21,7 @@ const quizzesData: QuizTypes[] = [
     duration: "30 minutes",
     attendance: 50,
     answeringStatus: "answered",
+    percentage: 95
   },
   {
     quizName: "UX Principles Quiz",
@@ -30,6 +31,7 @@ const quizzesData: QuizTypes[] = [
     duration: "30 minutes",
     attendance: 50,
     answeringStatus: "answered",
+    percentage: 79
   },
 ];
 

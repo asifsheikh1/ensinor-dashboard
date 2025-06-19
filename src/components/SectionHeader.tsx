@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import React from "react";
 import { IoSearch } from "react-icons/io5";
 import { MdOutlineFileDownload } from "react-icons/md";
@@ -57,6 +58,20 @@ export default function SectionHeader({
           >
             Download PDF
             <MdOutlineFileDownload className="text-2xl" />
+          </button>
+        )}
+
+        {leftContent === "viewCertification" && (
+          <button
+            className={`w-fit text-nowrap focus:outline-none px-6 py-3 text-black-primary text-lg font-medium cursor-pointer bg-white rounded-lg flex items-center gap-2.5`}
+          >
+            <Image
+              src="/icons/certificate.svg"
+              alt="Calendar"
+              width={23}
+              height={23}
+            />
+            <span> View Certification</span>
           </button>
         )}
       </>
