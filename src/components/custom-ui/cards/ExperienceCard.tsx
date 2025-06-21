@@ -16,7 +16,7 @@ export default function ExperienceCard({
   return (
     <>
       <div className="w-full p-4 bg-white space-y-8 rounded-xl">
-        <div className="flex items-center justify-between w-full">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-6 w-full">
           <div className="space-y-2 ">
             <h2 className="text-2xl font-semibold text-black-normal">
               {experienceData.role}
@@ -32,7 +32,7 @@ export default function ExperienceCard({
             {/* Add */}
             <button
               onClick={() => setIsOpenPopup(true)}
-              className={`w-full text-left px-4 py-2.5 border border-yellow-primary flex items-center gap-2 text-black-secondary rounded-lg cursor-pointer`}
+              className={`w-fit md:w-full text-left px-4 py-2.5 border border-yellow-primary flex items-center gap-2 text-black-secondary rounded-lg cursor-pointer`}
             >
               <HiPlus className="text-2xl" />
 

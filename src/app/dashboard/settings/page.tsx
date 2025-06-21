@@ -1,13 +1,8 @@
 "use client";
 
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import Image from "next/image";
 import React, { useState } from "react";
 import { RiEdit2Line } from "react-icons/ri";
-import DatePicker from "react-datepicker";
 
 import "react-datepicker/dist/react-datepicker.css";
 import EditInformationForm from "@/components/settings/EditInformationForm";
@@ -22,7 +17,7 @@ export default function Settings() {
   return (
     <div className="p-6 space-y-6">
       {/* Your Profile */}
-      <div className="w-full py-5 bg-white rounded-xl flex justify-center items-center gap-8">
+      <div className="w-full py-5 bg-white rounded-xl flex flex-col md:flex-row justify-center items-center gap-8">
         <div className="relative w-fit h-fit">
           <Image
             src="/images/dashboard/user.jpg"
@@ -35,7 +30,7 @@ export default function Settings() {
             <RiEdit2Line className="text-2xl" />
           </span>
         </div>
-        <div className="space-y-4">
+        <div className="space-y-4 text-center md:text-start">
           <h2 className="text-2xl font-semibold text-black-normal">
             Shahid Hasan
           </h2>
@@ -50,7 +45,7 @@ export default function Settings() {
             <button
               key={tab}
               onClick={() => setCurrentTab(tab)}
-              className={`px-3 py-1 text-lg font-normal text-black-normal border-b-2 ${
+              className={`px-3 py-1 text-lg font-normal text-black-normal border-b-2 cursor-pointer ${
                 tab === currentTab
                   ? "border-black-primary"
                   : "border-transparent"

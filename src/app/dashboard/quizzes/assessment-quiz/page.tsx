@@ -22,7 +22,7 @@ export default function AssessmentQuiz() {
     if (totalQuestions === answeredQuestions) {
       router.push('/dashboard/grades');
     } else {
-      setAnsweredQuestions(answeredQuestions + 5);
+      setAnsweredQuestions(answeredQuestions + 1);
     }
   };
 
@@ -40,7 +40,7 @@ export default function AssessmentQuiz() {
 
           <div className="w-full space-y-4">
             {/* Progress bar */}
-            <div className="w-full flex items-center gap-5">
+            <div className="w-full flex flex-col md:flex-row md:items-center gap-5">
               <span className="text-xl font-normal text-black-normal">
                 {answeredQuestions.toString().length === 1
                   ? `0${answeredQuestions}`
@@ -116,7 +116,7 @@ export default function AssessmentQuiz() {
         </div>
       </div>
 
-      <div className="w-full pt-12 border-t border-gray-border flex items-center justify-between gap-6 px-6">
+      <div className="w-full pt-12 border-t border-gray-border flex flex-col md:flex-row md:items-center justify-between gap-6 px-6">
         <p className="text-xl font-medium text-black-primary">
           Do NOT close this tab or browse away from it - your test may reset if
           you do so.

@@ -41,7 +41,7 @@ export default function Sidebar() {
         />
       </div>
 
-      <nav className="flex-1 flex flex-col justify-between">
+      <nav className="flex-1 flex flex-col justify-between gap-6">
         {/* Top Links */}
         <ul className="space-y-8">
           {sidebarLinks.map((link: SidebarLink) => (

@@ -2,13 +2,17 @@ import Image from "next/image";
 import React from "react";
 import { IoMenuOutline } from "react-icons/io5";
 
-export default function TopBar() {
+interface TopBarProps {
+  setIsSidebarOpen: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+export default function TopBar({setIsSidebarOpen}: TopBarProps) {
   return (
     <section className="w-full h-[80px] bg-white px-3 md:px-6 flex justify-between items-center shadow-md">
-      <h2 className="text-[32px] font-bold text-black-primary flex items-center gap-2">
-        <IoMenuOutline className="text-5xl" />
+      <button onClick={() => setIsSidebarOpen(true)} className="text-[32px] font-bold text-black-primary flex items-center gap-2">
+        <IoMenuOutline className="text-4xl lg:text-5xl" />
         <span>Settings</span>
-      </h2>
+      </button>
       {/* User Image */}
       <div className="w-fit h-fit border-2 border-[#FFB000] rounded-full">
         <Image

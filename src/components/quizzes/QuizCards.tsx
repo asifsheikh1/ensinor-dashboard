@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { QuizTypes } from "@/lib/types";
 import Image from "next/image";
@@ -17,11 +17,11 @@ export default function QuizCards({ quizzesData }: QuizCardsProps) {
   };
 
   return (
-   <section className="space-y-4">
+    <section className="space-y-4">
       {quizzesData.map((quiz) => (
         <div
           key={quiz.quizName}
-          className="w-full bg-white p-6 rounded-xl flex justify-between items-center"
+          className="w-full bg-white p-6 rounded-xl flex justify-between md:items-center"
         >
           {/* Left section */}
           <div className="flex-1 space-y-4">
@@ -32,7 +32,12 @@ export default function QuizCards({ quizzesData }: QuizCardsProps) {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-3 text-sm text-black-secondary">
               {/* Date */}
               <p className="flex items-center gap-2">
-                <Image src="/icons/calendar.svg" alt="Calendar" width={20} height={20} />
+                <Image
+                  src="/icons/calendar.svg"
+                  alt="Calendar"
+                  width={20}
+                  height={20}
+                />
                 <span>
                   {quiz.answeringStatus === "answered"
                     ? `Completed: ${quiz.date}`
@@ -42,7 +47,12 @@ export default function QuizCards({ quizzesData }: QuizCardsProps) {
 
               {/* Time */}
               <p className="flex items-center gap-2">
-                <Image src="/icons/clock.svg" alt="Clock" width={20} height={20} />
+                <Image
+                  src="/icons/clock.svg"
+                  alt="Clock"
+                  width={20}
+                  height={20}
+                />
                 <span>
                   {quiz.answeringStatus === "answered"
                     ? `Time spent: ${quiz.duration}`
@@ -53,14 +63,24 @@ export default function QuizCards({ quizzesData }: QuizCardsProps) {
               {/* Questions or Result */}
               {quiz.answeringStatus === "answered" ? (
                 <p className="flex items-center gap-2">
-                  <Image src="/icons/success.svg" alt="Success" width={20} height={20} />
+                  <Image
+                    src="/icons/success.svg"
+                    alt="Success"
+                    width={20}
+                    height={20}
+                  />
                   <span>
                     {quiz.corrected} of {quiz.totalQuestion} correct
                   </span>
                 </p>
               ) : (
                 <p className="flex items-center gap-2">
-                  <Image src="/icons/question.svg" alt="Question" width={20} height={20} />
+                  <Image
+                    src="/icons/question.svg"
+                    alt="Question"
+                    width={20}
+                    height={20}
+                  />
                   <span>Questions: {quiz.totalQuestion}</span>
                 </p>
               )}
@@ -73,21 +93,31 @@ export default function QuizCards({ quizzesData }: QuizCardsProps) {
 
           {/* Right section */}
           <div className="flex flex-col gap-5 items-end justify-between space-y-2">
-            {quiz.answeringStatus === "answered" && quiz.percentage !== undefined && (
-              <div className="text-end gap-1">
-                <h5
-                  className={`text-xl font-bold ${
-                    quiz.percentage < 80 ? "text-[#D77200]" : "text-[#00A349]"
-                  }`}
-                >
-                  {quiz.percentage}%
-                </h5>
-                <p className="text-sm font-normal text-black-secondary">Score</p>
-              </div>
-            )}
-               <button onClick={() => handleStartQuiz(quiz.quizName)} className="px-3 5 py-3 bg-yellow-primary text-base font-normal text-black-semibold rounded-lg text-black-secondary cursor-pointer">
-              {quiz.answeringStatus === "answered" ? "Re-start" : "Start Quiz"}
-            </button>
+            {quiz.answeringStatus === "answered" &&
+              quiz.percentage !== undefined && (
+                <div className="text-end gap-1">
+                  <h5
+                    className={`text-xl font-bold ${
+                      quiz.percentage < 80 ? "text-[#D77200]" : "text-[#00A349]"
+                    }`}
+                  >
+                    {quiz.percentage}%
+                  </h5>
+                  <p className="text-sm font-normal text-black-secondary">
+                    Score
+                  </p>
+                </div>
+              )}
+            <div className="w-full h-full flex items-end">
+              <button
+                onClick={() => handleStartQuiz(quiz.quizName)}
+                className="px-3 5 py-3 bg-yellow-primary text-base font-normal text-black-semibold rounded-lg text-black-secondary cursor-pointer"
+              >
+                {quiz.answeringStatus === "answered"
+                  ? "Re-start"
+                  : "Start Quiz"}
+              </button>
+            </div>
           </div>
         </div>
       ))}

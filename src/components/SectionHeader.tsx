@@ -16,14 +16,14 @@ export default function SectionHeader({
   description,
   leftContent,
 }: SectionHeaderProps) {
-  const handleSearch = (event) => {
+  const handleSearch = (event: { preventDefault: () => void; }) => {
     event.preventDefault();
 
     console.log("Search text: ", event);
   };
 
   return (
-    <section className="w-full flex items-center justify-between">
+    <section className="w-full flex flex-col lg:flex-row lg:items-center justify-between gap-6">
       <div className="space-y-[5px]">
         <h1 className="text-2xl font-semibold text-black-normal">{title}</h1>
         <p className="text-base font-normal text-black-primary">

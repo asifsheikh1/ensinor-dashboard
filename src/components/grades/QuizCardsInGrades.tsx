@@ -24,7 +24,7 @@ export default function QuizCardsInGrades({
       {quizzesInGradeData.map((quiz: QuizInGradeTypes) => (
         <div
           key={quiz.quizName}
-          className="w-full bg-white p-6 rounded-xl flex justify-between items-center"
+          className="w-full bg-white p-6 rounded-xl flex flex-col md:flex-row justify-between md:items-center gap-6"
         >
           {/* Left section */}
           <div className="flex-1 space-y-4">
@@ -45,10 +45,10 @@ export default function QuizCardsInGrades({
           </div>
 
           {/* Right section */}
-          <div className="flex flex-col gap-5 items-end justify-between space-y-2">
+          <div className="flex flex-col gap-5 md:items-end justify-between space-y-2">
             {quiz.answeringStatus === "answered" &&
               quiz.percentage !== undefined && (
-                <div className="text-end gap-1">
+                <div className="md:text-end gap-1">
                   <h5
                     className={`text-xl font-bold ${
                       quiz.percentage < 80 ? "text-[#D77200]" : "text-[#00A349]"

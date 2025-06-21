@@ -13,7 +13,7 @@ export default function IssuedCertificateCard({ certificateData }: IssuedCertifi
       {certificateData?.map((certificate: CertificateTypes) => (
         <div
           key={certificate.certificateName}
-          className="w-full bg-white p-6 rounded-xl flex justify-between items-center"
+          className="w-full bg-white p-6 rounded-xl flex flex-col md:flex-row justify-between md:items-center gap-6"
         >
           {/* Left section */}
           <div className="flex-1 space-y-4">
@@ -39,10 +39,10 @@ export default function IssuedCertificateCard({ certificateData }: IssuedCertifi
           </div>
 
           {/* Right section */}
-          <div className="flex flex-col gap-5 items-end justify-between space-y-2">
+          <div className="flex flex-col gap-5 md:items-end justify-between space-y-2">
             <div className="space-y-4">
               {/* Download */}
-              <div className="flex justify-end">
+              <div className="flex md:justify-end">
                 <button className="px-3.5 py-3 bg-yellow-primary text-base font-normal text-black-semibold rounded-lg text-black-secondary cursor-pointer flex items-center gap-2">
                   <span>Download</span>
                   <MdOutlineFileDownload className="text-2xl" />
