@@ -11,22 +11,73 @@ interface SidebarLink {
   icon: string;
 }
 
-const sidebarLinks: SidebarLink[] = [
+const studentLinks: SidebarLink[] = [
   { name: "Dashboard", url: "/dashboard", icon: "/icons/dashboard.svg" },
-  { name: "Courses", url: "/dashboard/courses", icon: "/icons/book.svg" },
-  { name: "My CV", url: "/dashboard/cv", icon: "/icons/cv.svg" },
-  { name: "Quizzes", url: "/dashboard/quizzes", icon: "/icons/intelligent.svg" },
-  { name: "Grades", url: "/dashboard/grades", icon: "/icons/mark-sheet.svg" },
+  {
+    name: "Courses",
+    url: "/dashboard/students/courses",
+    icon: "/icons/book.svg",
+  },
+  { name: "My CV", url: "/dashboard/students/cv", icon: "/icons/cv.svg" },
+  {
+    name: "Quizzes",
+    url: "/dashboard/students/quizzes",
+    icon: "/icons/intelligent.svg",
+  },
+  {
+    name: "Grades",
+    url: "/dashboard/students/grades",
+    icon: "/icons/mark-sheet.svg",
+  },
   {
     name: "Certifications",
-    url: "/dashboard/certifications",
+    url: "/dashboard/students/certifications",
     icon: "/icons/certificate.svg",
   },
-  { name: "Settings", url: "/dashboard/settings", icon: "/icons/settings.svg" },
+  {
+    name: "Settings",
+    url: "/dashboard/students/settings",
+    icon: "/icons/settings.svg",
+  },
+];
+const instructorLinks: SidebarLink[] = [
+  { name: "Dashboard", url: "/dashboard", icon: "/icons/dashboard.svg" },
+  {
+    name: "Courses",
+    url: "/dashboard/instructors/courses",
+    icon: "/icons/book.svg",
+  },
+  {
+    name: "Quizzes",
+    url: "/dashboard/instructors/quizzes",
+    icon: "/icons/intelligent.svg",
+  },
+  {
+    name: "Students",
+    url: "/dashboard/instructors/students",
+    icon: "/icons/student.svg",
+  },
+  {
+    name: "Reviews",
+    url: "/dashboard/instructors/reviews",
+    icon: "/icons/review.svg",
+  },
+  {
+    name: "Payouts",
+    url: "/dashboard/instructors/payouts",
+    icon: "/icons/payment.svg",
+  },
+  {
+    name: "Shop",
+    url: "/dashboard/instructors/shop",
+    icon: "/icons/shop.svg",
+  },
 ];
 
 export default function Sidebar() {
   const pathname = usePathname();
+
+  const userRole: string = "instructor";
 
   return (
     <aside className="w-full h-screen overflow-y-auto md:w-[300px] bg-white p-6 flex flex-col shadow-md">
@@ -44,28 +95,54 @@ export default function Sidebar() {
       <nav className="flex-1 flex flex-col justify-between gap-6">
         {/* Top Links */}
         <ul className="space-y-8">
-          {sidebarLinks.map((link: SidebarLink) => (
-            <li key={link.name}>
-              <Link href={link.url}>
-                <button
-                  className={`w-full text-left px-6 py-3.5 ${
-                    link.url === pathname
-                      ? "bg-yellow-primary"
-                      : "bg-transparent hover:bg-hover-link"
-                  } flex items-center gap-2 text-black-primary rounded-lg cursor-pointer`}
-                >
-                  <Image
-                    src={link.icon}
-                    alt={link.name}
-                    width={25}
-                    height={25}
-                    className="w-[25px] h-[25px]"
-                  />
-                  <span>{link.name}</span>
-                </button>
-              </Link>
-            </li>
-          ))}
+          {/* Student Links */}
+          {userRole === "student" &&
+            studentLinks.map((link: SidebarLink) => (
+              <li key={link.name}>
+                <Link href={link.url}>
+                  <button
+                    className={`w-full text-left px-6 py-3.5 ${
+                      link.url === pathname
+                        ? "bg-yellow-primary"
+                        : "bg-transparent hover:bg-hover-link"
+                    } flex items-center gap-2 text-black-primary rounded-lg cursor-pointer`}
+                  >
+                    <Image
+                      src={link.icon}
+                      alt={link.name}
+                      width={25}
+                      height={25}
+                      className="w-[25px] h-[25px]"
+                    />
+                    <span>{link.name}</span>
+                  </button>
+                </Link>
+              </li>
+            ))}
+          {/* Instructor Links */}
+          {userRole === "instructor" &&
+            instructorLinks.map((link: SidebarLink) => (
+              <li key={link.name}>
+                <Link href={link.url}>
+                  <button
+                    className={`w-full text-left px-6 py-3.5 ${
+                      link.url === pathname
+                        ? "bg-yellow-primary"
+                        : "bg-transparent hover:bg-hover-link"
+                    } flex items-center gap-2 text-black-primary rounded-lg cursor-pointer`}
+                  >
+                    <Image
+                      src={link.icon}
+                      alt={link.name}
+                      width={25}
+                      height={25}
+                      className="w-[25px] h-[25px]"
+                    />
+                    <span>{link.name}</span>
+                  </button>
+                </Link>
+              </li>
+            ))}
         </ul>
 
         {/* Bottom Link */}
@@ -74,8 +151,8 @@ export default function Sidebar() {
             className={`w-full text-left px-6 py-3.5 border border-yellow-primary flex items-center gap-2 text-black-primary rounded-lg cursor-pointer`}
           >
             <Image
-              src='/icons/logout.svg'
-              alt='logout'
+              src="/icons/logout.svg"
+              alt="logout"
               width={25}
               height={25}
               className="w-[25px] h-[25px]"
