@@ -3,12 +3,22 @@
 import Image from "next/image";
 import React from "react";
 import { IoSearch } from "react-icons/io5";
-import { MdOutlineFileDownload } from "react-icons/md";
+import {
+  CreateNewCourseButton,
+  DownloadButton,
+  ViewCertificationButton,
+} from "@/components/custom-ui/buttons/buttons";
+import Link from "next/link";
 
 interface SectionHeaderProps {
   title: string;
   description: string;
-  leftContent: "form" | "download" | "viewCertification" | "null";
+  leftContent:
+    | "form"
+    | "download"
+    | "viewCertification"
+    | "createNewCourse"
+    | "null";
 }
 
 export default function SectionHeader({
@@ -16,7 +26,7 @@ export default function SectionHeader({
   description,
   leftContent,
 }: SectionHeaderProps) {
-  const handleSearch = (event: { preventDefault: () => void; }) => {
+  const handleSearch = (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
     console.log("Search text: ", event);
@@ -52,27 +62,29 @@ export default function SectionHeader({
           </form>
         )}
 
-        {leftContent === "download" && (
-          <button
-            className={`w-fit text-nowrap focus:outline-none px-6 py-3 text-black-primary text-lg font-medium cursor-pointer bg-yellow-primary rounded-lg flex items-center gap-2.5`}
-          >
-            Download PDF
-            <MdOutlineFileDownload className="text-2xl" />
-          </button>
-        )}
+        {leftContent === "download" && <DownloadButton />}
 
-        {leftContent === "viewCertification" && (
-          <button
-            className={`w-fit text-nowrap focus:outline-none px-6 py-3 text-black-primary text-lg font-medium cursor-pointer bg-white rounded-lg flex items-center gap-2.5`}
-          >
-            <Image
-              src="/icons/certificate.svg"
-              alt="Calendar"
-              width={23}
-              height={23}
-            />
-            <span> View Certification</span>
-          </button>
+        {leftContent === "viewCertification" && <ViewCertificationButton />}
+
+        {leftContent === "createNewCourse" && (
+          <div className="flex items-center gap-8">
+            {/* Search form */}
+            <form
+              onSubmit={handleSearch}
+              className="w-full min-w-[274px] h-fit flex justify-center items-center relative"
+            >
+              <input
+                type="text"
+                placeholder="Search"
+                className="w-full h-auto px-4 py-3 bg-gray-background text-[#262626] placeholder:text-[#909090] rounded-lg border border-[#E6E6E6] focus:outline-none focus:ring-2 focus:ring-yellow-500"
+              />
+              <IoSearch className="text-xl text-[#909090] absolute right-4" />
+            </form>
+            {/* Button */}
+            <Link href={"/dashboard/instructors/courses/create-new-course"}>
+              <CreateNewCourseButton />
+            </Link>
+          </div>
         )}
       </>
     </section>

@@ -64,3 +64,16 @@ export interface CertificateTypes {
   date: string;
   courseProgress?: number;
 }
+
+export type UserRole = 'student' | 'instructor';
+
+export interface CourseTypes {
+  _id: string;
+  courseName: string;
+  courseThumnail: string;
+  lectures: number;
+  duration: string;
+  enrolled: number;
+  status: string;
+  amount: number;
+}

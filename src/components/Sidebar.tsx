@@ -1,5 +1,6 @@
 "use client";
 
+import { UserRole } from "@/lib/types";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -77,7 +78,7 @@ const instructorLinks: SidebarLink[] = [
 export default function Sidebar() {
   const pathname = usePathname();
 
-  const userRole: string = "instructor";
+  const userRole: UserRole = "instructor";
 
   return (
     <aside className="w-full h-screen overflow-y-auto md:w-[300px] bg-white p-6 flex flex-col shadow-md">
@@ -96,7 +97,7 @@ export default function Sidebar() {
         {/* Top Links */}
         <ul className="space-y-8">
           {/* Student Links */}
-          {userRole === "student" &&
+          {userRole === ("student" as UserRole) &&
             studentLinks.map((link: SidebarLink) => (
               <li key={link.name}>
                 <Link href={link.url}>
@@ -120,7 +121,7 @@ export default function Sidebar() {
               </li>
             ))}
           {/* Instructor Links */}
-          {userRole === "instructor" &&
+          {userRole === ("instructor" as UserRole) &&
             instructorLinks.map((link: SidebarLink) => (
               <li key={link.name}>
                 <Link href={link.url}>

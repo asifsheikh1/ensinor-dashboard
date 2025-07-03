@@ -1,18 +1,44 @@
+import Image from "next/image";
 import React from "react";
 import { IoMdInformationCircleOutline } from "react-icons/io";
 
-interface CourseTypes {
+interface MostSellingCourseTypes {
   _id: string;
   courseName: string;
+  courseThumnail: string;
   selling: string;
   amount: number;
 }
 
-const coursesData: CourseTypes[] = [
-  { _id: "#738", courseName: "UX/UI design", selling: "102", amount: 1420 },
-  { _id: "#738", courseName: "UX/UI design", selling: "102", amount: 1420 },
-  { _id: "#738", courseName: "UX/UI design", selling: "102", amount: 1420 },
-  { _id: "#738", courseName: "UX/UI design", selling: "102", amount: 1420 },
+const coursesData: MostSellingCourseTypes[] = [
+  {
+    _id: "#738",
+    courseName: "UX/UI design",
+    courseThumnail: "/images/dashboard/courses/course-1.png",
+    selling: "102",
+    amount: 1420,
+  },
+  {
+    _id: "#738",
+    courseThumnail: "/images/dashboard/courses/course-2.png",
+    courseName: "UX/UI design",
+    selling: "102",
+    amount: 1420,
+  },
+  {
+    _id: "#738",
+    courseThumnail: "/images/dashboard/courses/course-1.png",
+    courseName: "UX/UI design",
+    selling: "102",
+    amount: 1420,
+  },
+  {
+    _id: "#738",
+    courseThumnail: "/images/dashboard/courses/course-2.png",
+    courseName: "UX/UI design",
+    selling: "102",
+    amount: 1420,
+  },
 ];
 
 export default function MostSellingCourses() {
@@ -56,7 +82,7 @@ export default function MostSellingCourses() {
                 </thead>
                 {/* T Body */}
                 <tbody className="">
-                  {coursesData.map((course: CourseTypes) => (
+                  {coursesData.map((course: MostSellingCourseTypes) => (
                     <tr key={course._id} className="border-b border-[#606060]">
                       {/* Selling ID */}
                       <td className="px-6 py-4">
@@ -65,27 +91,36 @@ export default function MostSellingCourses() {
                         </div>
                       </td>
                       {/* Course Name */}
-                        <td className="px-6 py-4">
-                        <div>
+                      <td className="px-6 py-4">
+                        <div className="flex items-center gap-2">
+                           <Image
+                            src={course.courseThumnail}
+                            alt={course.courseName}
+                            width={62}
+                            height={40}
+                            className="w-[62px] h-10 rounded-xs"
+                          />
                           <p>{course.courseName}</p>
                         </div>
                       </td>
                       {/* Selling */}
-                        <td className="px-6 py-4">
+                      <td className="px-6 py-4">
                         <div>
                           <p>{course.selling}</p>
                         </div>
                       </td>
                       {/* Amount */}
-                        <td className="px-6 py-4">
+                      <td className="px-6 py-4">
                         <div>
                           <p>{course.amount}</p>
                         </div>
                       </td>
                       {/* Action */}
-                        <td className="px-6 py-4">
+                      <td className="px-6 py-4">
                         <div>
-                          <button className="cursor-pointer"><IoMdInformationCircleOutline className="text-2xl" /></button>
+                          <button className="cursor-pointer">
+                            <IoMdInformationCircleOutline className="text-2xl" />
+                          </button>
                         </div>
                       </td>
                     </tr>
