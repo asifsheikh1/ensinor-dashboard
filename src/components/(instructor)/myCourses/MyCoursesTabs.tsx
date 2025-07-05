@@ -2,22 +2,25 @@
 
 import React from "react";
 
-interface TabsProps {
-    activeTab: string;
-    setActiveTab: React.Dispatch<React.SetStateAction<string>>;
+interface Tab {
+  name: string;
+  count: number;
 }
 
-export default function MyCoursesTabs({activeTab, setActiveTab}: TabsProps) {
-  const tabs = [
-    {name: "Course details", count: 3},
-    {name: "Course media", count: 2},
-    {name: "Curriculum", count: 0},
-    {name: "Additional Information", count: 0}
-  ];
+interface TabsProps {
+  tabs: Tab[];
+  activeTab: string;
+  setActiveTab: React.Dispatch<React.SetStateAction<string>>;
+}
 
+export default function MyCoursesTabs({
+  tabs,
+  activeTab,
+  setActiveTab,
+}: TabsProps) {
   return (
     <div className="w-fit overflow-hidden p-1.5 bg-white rounded-lg flex items-center gap-2">
-      {tabs.map((tab) => (
+      {tabs.map((tab: Tab) => (
         <button
           key={tab.name}
           onClick={() => setActiveTab(tab.name)}
@@ -27,7 +30,8 @@ export default function MyCoursesTabs({activeTab, setActiveTab}: TabsProps) {
               : "bg-transparent hover:bg-[#e1e3e4]"
           } rounded-lg`}
         >
-          {tab.name}{tab.count !== 0 && ` (${tab.count})`}
+          {tab.name}
+          {tab.count !== 0 && ` (${tab.count})`}
         </button>
       ))}
     </div>
