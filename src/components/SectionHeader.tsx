@@ -1,11 +1,11 @@
 "use client";
 
-import Image from "next/image";
 import React from "react";
 import { IoSearch } from "react-icons/io5";
 import {
   CreateNewCourseButton,
   DownloadButton,
+  SearchForm,
   SimpleSearchForm,
   ViewCertificationButton,
 } from "@/components/custom-ui/buttons/buttons";
@@ -21,12 +21,18 @@ interface SectionHeaderProps {
     | "viewCertification"
     | "createNewCourse"
     | "null";
+  options?: {
+    name: "button" | "link" | "text";
+    content: string;
+    link?: string;
+  };
 }
 
 export default function SectionHeader({
   title,
   description,
   leftContent,
+  options = { name: "text", content: "", link: "" },
 }: SectionHeaderProps) {
   const handleSearch = (event: { preventDefault: () => void }) => {
     event.preventDefault();
@@ -44,25 +50,7 @@ export default function SectionHeader({
       </div>
 
       <>
-        {leftContent === "form" && (
-          <form
-            onSubmit={handleSearch}
-            className="w-full max-w-[550px] h-fit flex justify-center items-center relative"
-          >
-            <IoSearch className="text-xl text-[#262626] absolute left-4" />
-            <input
-              type="text"
-              placeholder="Search Courses"
-              className="w-full h-[60px] px-4 py-2 pl-12 bg-white text-[#262626] placeholder:text-[#909090] rounded-l-full border border-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
-            />
-            <button
-              type="submit"
-              className="w-[145px] h-[60px] bg-yellow-primary text-[#262626] font-semibold px-6 py-2 rounded-r-full hover:bg-yellow-500 transition-colors cursor-pointer"
-            >
-              Search
-            </button>
-          </form>
-        )}
+        {leftContent === "form" && <SearchForm />}
 
         {leftContent === "download" && <DownloadButton />}
 
@@ -78,7 +66,32 @@ export default function SectionHeader({
             </Link>
           </div>
         )}
-        {leftContent === "simpleSearchForm" && <SimpleSearchForm handleSearch={handleSearch} />}
+        {leftContent === "simpleSearchForm" && (
+          <div className="w-full flex items-center lg:justify-end gap-6">
+            <SimpleSearchForm handleSearch={handleSearch} />
+
+            {/* Option Button */}
+            {options?.name && options?.name === "button" && (
+              <>
+                {options?.link ? (
+                  <Link href={options.link}>
+                    <button
+                      className={`w-full text-left px-6 py-3.5 border border-yellow-primary flex items-center gap-2 text-black-primary rounded-lg cursor-pointer`}
+                    >
+                      {options.content}
+                    </button>
+                  </Link>
+                ) : (
+                  <button
+                    className={`w-fit text-left px-6 py-3.5 bg-yellow-primary flex items-center gap-2 text-black-primary rounded-lg cursor-pointer`}
+                  >
+                    {options.content}
+                  </button>
+                )}
+              </>
+            )}
+          </div>
+        )}
       </>
     </section>
   );

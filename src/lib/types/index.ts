@@ -94,3 +94,20 @@ export interface StudentTypes {
   courses: number;
   enrolledDate: string;
 }
+
+export interface WithdrawTypes {
+  id: string;
+  amount: number;
+  paymentMethod: string;
+  date: string;
+  status: string;
+}
+
+export interface ShopTypes {
+  _id: string;
+  thumbnail: string;
+  title: string;
+  description: string;
+  productManager: string;
+  price: number;
+}

@@ -1,6 +1,28 @@
 import { IoSearch } from "react-icons/io5";
 import { MdOutlineFileDownload } from "react-icons/md";
 
+export const SearchForm = () => {
+  return (
+    <form
+      onSubmit={handleSearch}
+      className="w-full max-w-[550px] h-fit flex justify-center items-center relative"
+    >
+      <IoSearch className="text-xl text-[#262626] absolute left-4" />
+      <input
+        type="text"
+        placeholder="Search Courses"
+        className="w-full h-[60px] px-4 py-2 pl-12 bg-white text-[#262626] placeholder:text-[#909090] rounded-l-full border border-white focus:outline-none focus:ring-2 focus:ring-yellow-500"
+      />
+      <button
+        type="submit"
+        className="w-[145px] h-[60px] bg-yellow-primary text-[#262626] font-semibold px-6 py-2 rounded-r-full hover:bg-yellow-500 transition-colors cursor-pointer"
+      >
+        Search
+      </button>
+    </form>
+  );
+};
+
 export const DownloadButton = () => {
   return (
     <button
@@ -38,7 +60,7 @@ export const CreateNewCourseButton = () => {
   );
 };
 
-export const SimpleSearchForm = ({handleSearch}) => {
+export const SimpleSearchForm = ({ handleSearch }) => {
   return (
     <form
       onSubmit={handleSearch}
