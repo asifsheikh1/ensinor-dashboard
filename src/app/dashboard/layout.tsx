@@ -29,6 +29,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <Sidebar />
         </div>
       </div>
+      {/* Main Content */}
       <main className="flex-1 overflow-y-auto">
         <TopBar setIsSidebarOpen={setIsSidebarOpen} />
         {children}

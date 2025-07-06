@@ -49,8 +49,8 @@ const instructorLinks: SidebarLink[] = [
     icon: "/icons/book.svg",
   },
   {
-    name: "Quizzes",
-    url: "/dashboard/instructors/quizzes",
+    name: "Quiz",
+    url: "/dashboard/instructors/quiz",
     icon: "/icons/intelligent.svg",
   },
   {

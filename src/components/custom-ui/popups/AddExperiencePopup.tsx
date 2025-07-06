@@ -219,6 +219,7 @@ export default function AddExperiencePopup({
             />
             {/* Cancel button */}
             <button
+            type="button"
               onClick={() => setIsOpenPopup(false)}
               className="w-fit py-3 px-10 border border-yellow-primary text-lg text-black-normal rounded-lg cursor-pointer"
             >

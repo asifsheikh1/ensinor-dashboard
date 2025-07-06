@@ -42,10 +42,10 @@ export interface QuizTypes {
 }
 
 export interface StateTypes {
-    title: string;
-    mainText: string;
-    subText: string;
-    percentage?: number;
+  title: string;
+  mainText: string;
+  subText: string;
+  percentage?: number;
 }
 
 export interface QuizInGradeTypes {
@@ -65,7 +65,7 @@ export interface CertificateTypes {
   courseProgress?: number;
 }
 
-export type UserRole = 'student' | 'instructor';
+export type UserRole = "student" | "instructor";
 
 export interface CourseTypes {
   _id: string;
@@ -76,4 +76,21 @@ export interface CourseTypes {
   enrolled: number;
   status: string;
   amount: number;
+}
+
+export interface InstructorQuizTypes {
+  quizName: string;
+  date: string;
+  duration: string;
+  totalQuestion: number;
+}
+
+export interface StudentTypes {
+  _id: string;
+  studentName: string;
+  image: string;
+  address: string;
+  progress: number;
+  courses: number;
+  enrolledDate: string;
 }

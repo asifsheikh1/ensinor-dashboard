@@ -1,19 +1,7 @@
 "use client";
 
 import { CardContent } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select";
-import { Textarea } from "@/components/ui/textarea";
-import JoditEditor from "jodit-react";
 import React, { useMemo, useRef, useState } from "react";
 
 export default function CourseMedia() {
@@ -78,7 +66,7 @@ export default function CourseMedia() {
                 Upload video
               </Label>
 
-            {/* File 1 */}
+              {/* File 1 */}
               <div className="flex items-center gap-4 mt-2">
                 <input
                   type="file"
@@ -92,11 +80,12 @@ export default function CourseMedia() {
                   Play
                 </button>
               </div>
-            {/* File 2 */}
+              {/* File 2 */}
               <div className="flex items-center gap-4 mt-4">
                 <input
                   type="file"
-                  className="block w-full text-black-normal bg-white border border-gray-200 rounded-md file:bg-gray-background file:text-black-normal file:text-base file:px-4 file:py-4 file:border-none file:mr-4 placeholder-gray-400/70 dark:placeholder-gray-500 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "
+                  placeholder="Understanding Design Thinking & Process"
+                  className="block w-full text-black-normal bg-white border border-gray-200 rounded-md file:bg-gray-background file:text-black-normal file:text-base file:px-4 file:py-4 file:border-none file:mr-4 placeholder-gray-400/70 dark:placeholder-gray-500 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40"
                 />
                 {/* Play Button */}
                 <button
@@ -106,10 +95,11 @@ export default function CourseMedia() {
                   Play
                 </button>
               </div>
-            {/* File 1 */}
+              {/* File 3 */}
               <div className="flex items-center gap-4 mt-4">
                 <input
                   type="file"
+                  placeholder="Define CIX Design"
                   className="block w-full text-black-normal bg-white border border-gray-200 rounded-md file:bg-gray-background file:text-black-normal file:text-base file:px-4 file:py-4 file:border-none file:mr-4 placeholder-gray-400/70 dark:placeholder-gray-500 focus:border-blue-400 focus:outline-none focus:ring focus:ring-blue-300 focus:ring-opacity-40 "
                 />
                 {/* Play Button */}
@@ -122,9 +112,21 @@ export default function CourseMedia() {
               </div>
             </div>
           </div>
+          {/* Video preview */}
+          <div className="w-full max-h-[650px] lg:h-[500px] xl:h-[650px] col-span-2">
+            <Label htmlFor="phoneNumber" className=" text-lg">
+              Video preview
+            </Label>
 
-          <button className="col-span-2 w-full bg-yellow-primary text-black-primary text-lg font-medium py-3 rounded hover:bg-yellow-500 cursor-pointer">
-            Payment Now
+            <video controls className="w-full h-full mt-2 rounded-lg">
+              <source src="video.mp4" type="video/mp4" />
+              <source src="video.webm" type="video/webm" />
+              Your browser does not support the video tag.
+            </video>
+          </div>
+
+          <button type="button" className="col-span-2 w-full bg-yellow-primary text-black-primary text-lg font-medium py-3 rounded hover:bg-yellow-500 cursor-pointer">
+            Next
           </button>
         </form>
       </CardContent>

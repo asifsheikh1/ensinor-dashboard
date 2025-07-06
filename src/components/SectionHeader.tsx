@@ -6,6 +6,7 @@ import { IoSearch } from "react-icons/io5";
 import {
   CreateNewCourseButton,
   DownloadButton,
+  SimpleSearchForm,
   ViewCertificationButton,
 } from "@/components/custom-ui/buttons/buttons";
 import Link from "next/link";
@@ -15,6 +16,7 @@ interface SectionHeaderProps {
   description: string;
   leftContent:
     | "form"
+    | "simpleSearchForm"
     | "download"
     | "viewCertification"
     | "createNewCourse"
@@ -34,7 +36,7 @@ export default function SectionHeader({
 
   return (
     <section className="w-full flex flex-col lg:flex-row lg:items-center justify-between gap-6">
-      <div className="space-y-[5px]">
+      <div className="w-full space-y-[5px]">
         <h1 className="text-2xl font-semibold text-black-normal">{title}</h1>
         <p className="text-base font-normal text-black-primary">
           {description}
@@ -69,23 +71,14 @@ export default function SectionHeader({
         {leftContent === "createNewCourse" && (
           <div className="flex items-center gap-8">
             {/* Search form */}
-            <form
-              onSubmit={handleSearch}
-              className="w-full min-w-[274px] h-fit flex justify-center items-center relative"
-            >
-              <input
-                type="text"
-                placeholder="Search"
-                className="w-full h-auto px-4 py-3 bg-gray-background text-[#262626] placeholder:text-[#909090] rounded-lg border border-[#E6E6E6] focus:outline-none focus:ring-2 focus:ring-yellow-500"
-              />
-              <IoSearch className="text-xl text-[#909090] absolute right-4" />
-            </form>
+            <SimpleSearchForm handleSearch={handleSearch} />
             {/* Button */}
             <Link href={"/dashboard/instructors/courses/create-new-course"}>
               <CreateNewCourseButton />
             </Link>
           </div>
         )}
+        {leftContent === "simpleSearchForm" && <SimpleSearchForm handleSearch={handleSearch} />}
       </>
     </section>
   );

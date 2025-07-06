@@ -9,7 +9,7 @@ interface AddDegreePopupProps {
 
 // interface FormData {}
 
-export default function AddDegreePopup({
+export default function AddQuestionPopup({
   setIsOpenPopup,
 }: AddDegreePopupProps) {
   const [loading, setLoading] = useState(false);
@@ -67,91 +67,107 @@ export default function AddDegreePopup({
       <div className="relative bg-white max-w-3xl w-full rounded-lg z-20 overflow-hidden">
         {/* Title */}
         <h3 className="text-2xl font-semibold text-black-primary w-full px-6 py-6">
-          Add New Flat
+          Create a New Quiz
         </h3>
         {/* Form */}
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="space-y-6 px-6 bg-gray-background py-6"
         >
-          {/* Institution Name */}
+          {/* Question Name */}
           <div>
             <label htmlFor="flatName" className={labelClassNames}>
-              Institution Name <span className="text-red-500 text-lg">*</span>
+              Question Name
             </label>
             <input
               type="text"
               id="flatName"
               className={inputFieldClassNames}
-              placeholder="type the name of your school, college, or university name"
+              placeholder="Enter question name"
               // {...register("flatName", { required: true })}
             />
             {/* {errors.flatName && (
             <span className="text-sm text-red-500">This field is required</span>
           )} */}
           </div>
-          {/* Degree Name */}
-          <div>
-            <label htmlFor="tenantName" className={labelClassNames}>
-              Your Degree <span className="text-red-500 text-lg">*</span>
-            </label>
-            <input
-              type="text"
-              id="tenantName"
-              className={inputFieldClassNames}
-              placeholder="level of education"
-              // {...register("tenantName", { required: true })}
-            />
-            {/* {errors.tenantName && (
+          <div className="w-full flex flex-col md:flex-row gap-6">
+            {/* Option A */}
+            <div className="w-full">
+              <label htmlFor="tenantName" className={labelClassNames}>
+                Option A
+              </label>
+              <input
+                type="text"
+                id="tenantName"
+                className={inputFieldClassNames}
+                placeholder="Enter option A"
+                // {...register("tenantName", { required: true })}
+              />
+              {/* {errors.tenantName && (
             <span className="text-sm text-red-500">This field is required</span>
           )} */}
-          </div>
-          {/* Major Group */}
-          <div>
-            <label htmlFor="phoneNumber" className={labelClassNames}>
-              Concentration or Major Group
-            </label>
-            <input
-              type="text"
-              id="phoneNumber"
-              className={inputFieldClassNames}
-              placeholder="major or concentration"
-              // {...register("phoneNumber", { required: true })}
-            />
-            {/* {errors.phoneNumber && (
+            </div>
+            {/* Option B */}
+            <div className="w-full">
+              <label htmlFor="tenantName" className={labelClassNames}>
+                Option B
+              </label>
+              <input
+                type="text"
+                id="tenantName"
+                className={inputFieldClassNames}
+                placeholder="Enter option B"
+                // {...register("tenantName", { required: true })}
+              />
+              {/* {errors.tenantName && (
             <span className="text-sm text-red-500">This field is required</span>
           )} */}
+            </div>
           </div>
-          {/* Result */}
+          <div className="w-full flex flex-col md:flex-row gap-6">
+            {/* Option C */}
+            <div className="w-full">
+              <label htmlFor="tenantName" className={labelClassNames}>
+                Option C
+              </label>
+              <input
+                type="text"
+                id="tenantName"
+                className={inputFieldClassNames}
+                placeholder="Enter option C"
+                // {...register("tenantName", { required: true })}
+              />
+              {/* {errors.tenantName && (
+            <span className="text-sm text-red-500">This field is required</span>
+          )} */}
+            </div>
+            {/* Option D */}
+            <div className="w-full">
+              <label htmlFor="tenantName" className={labelClassNames}>
+                Option D
+              </label>
+              <input
+                type="text"
+                id="tenantName"
+                className={inputFieldClassNames}
+                placeholder="Enter option D"
+                // {...register("tenantName", { required: true })}
+              />
+              {/* {errors.tenantName && (
+            <span className="text-sm text-red-500">This field is required</span>
+          )} */}
+            </div>
+          </div>
+          {/* Current Answer */}
           <div>
             <label htmlFor="rent" className={labelClassNames}>
-              Your Result <span className="text-red-500 text-lg">*</span>
-            </label>
-            <select
-              name=""
-              id=""
-              defaultValue={"default"}
-              className={inputFieldClassNames}
-              // {...register("rent", { required: true })}
-            >
-              <option value="default">example: gpa/cgpa</option>
-              <option value="">GPA</option>
-              <option value="">CGPA</option>
-            </select>
-            {/* {errors.rent && (
-            <span className="text-sm text-red-500">This field is required</span>
-          )} */}
-          </div>
-          {/* Duration */}
-          <div>
-            <label htmlFor="rent" className={labelClassNames}>
-              Duration in your <span className="text-red-500 text-lg">*</span>
+              Currect Answer
             </label>
             <input
               type="text"
               id="rent"
               className={inputFieldClassNames}
-              placeholder="example: 2024-2025"
+              placeholder="Enter currect answer"
               // {...register("rent", { required: true })}
             />
             {/* {errors.rent && (
@@ -169,7 +185,7 @@ export default function AddDegreePopup({
             />
             {/* Cancel button */}
             <button
-            type="button"
+              type="button"
               onClick={() => setIsOpenPopup(false)}
               className="w-fit py-3 px-10 border border-yellow-primary text-lg text-black-normal rounded-lg cursor-pointer"
             >

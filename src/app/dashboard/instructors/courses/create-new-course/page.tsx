@@ -8,9 +8,7 @@ import CourseMedia from "@/components/(instructor)/myCourses/tabContents/CourseM
 
 const tabs = [
   { name: "Course details", count: 3 },
-  { name: "Course media", count: 2 },
-  { name: "Curriculum", count: 0 },
-  { name: "Additional Information", count: 0 },
+  { name: "Course media", count: 2 }
 ];
 
 export default function CreateNewCourse() {
