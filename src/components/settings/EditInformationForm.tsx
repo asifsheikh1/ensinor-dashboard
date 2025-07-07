@@ -41,10 +41,10 @@ export default function EditInformationForm({selectedDate, setSelectedDate}: Edi
               </div>
               {/* Phone */}
               <div className="grid gap-3">
-                <Label htmlFor="email">Phone</Label>
+                <Label htmlFor="phone">Phone</Label>
                 <Input
-                  id="email"
-                  type="text"
+                  id="phone"
+                  type="phone"
                   placeholder="Enter your phone number"
                   className="w-full h-[60px] px-5 py-4 bg-[#FFFFFF] text-[#2D2D2D] placeholder:text-[#999999] shadow-none border border-[#E6E6E6] rounded-[8px] input-field-text"
                   required
@@ -52,18 +52,18 @@ export default function EditInformationForm({selectedDate, setSelectedDate}: Edi
               </div>
               {/* Address */}
               <div className="grid gap-3">
-                <Label htmlFor="email">Address</Label>
+                <Label htmlFor="address">Address</Label>
                 <Input
-                  id="email"
+                  id="address"
                   type="text"
-                  placeholder="Enter your address number"
+                  placeholder="Enter your address"
                   className="w-full h-[60px] px-5 py-4 bg-[#FFFFFF] text-[#2D2D2D] placeholder:text-[#999999] shadow-none border border-[#E6E6E6] rounded-[8px] input-field-text"
                   required
                 />
               </div>
               {/* Date Of Birth */}
               <div className="grid gap-3">
-                <Label htmlFor="email">Date Of Birth</Label>
+                <Label htmlFor="birthDate">Date Of Birth</Label>
                 <DatePicker
                   selected={selectedDate}
                   onChange={(date) => setSelectedDate(date ? date : new Date())}

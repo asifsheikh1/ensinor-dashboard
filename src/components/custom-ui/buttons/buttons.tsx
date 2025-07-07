@@ -1,7 +1,15 @@
+import Image from "next/image";
 import { IoSearch } from "react-icons/io5";
 import { MdOutlineFileDownload } from "react-icons/md";
 
-export const SearchForm = () => {
+interface SearchFormProps {
+  handleSearch: (e: React.FormEvent<HTMLFormElement>) => void;
+}
+interface SimpleSearchFormProps {
+  handleSearch: (e: React.FormEvent<HTMLFormElement>) => void;
+}
+
+export const SearchForm = ({handleSearch}: SearchFormProps) => {
   return (
     <form
       onSubmit={handleSearch}
@@ -60,7 +68,7 @@ export const CreateNewCourseButton = () => {
   );
 };
 
-export const SimpleSearchForm = ({ handleSearch }) => {
+export const SimpleSearchForm = ({ handleSearch }: SimpleSearchFormProps) => {
   return (
     <form
       onSubmit={handleSearch}

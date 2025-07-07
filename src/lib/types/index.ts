@@ -65,7 +65,7 @@ export interface CertificateTypes {
   courseProgress?: number;
 }
 
-export type UserRole = "student" | "instructor";
+export type UserRole = "student" | "instructor" | "employee" | "businessInstructor" | "superAdmin";
 
 export interface CourseTypes {
   _id: string;
@@ -110,4 +110,22 @@ export interface ShopTypes {
   description: string;
   productManager: string;
   price: number;
+}
+
+export interface SidebarLink {
+  name: string;
+  url: string;
+  icon: string;
+}
+
+export interface StudentTabTypes {
+  name: string;
+  count: number;
+}
+
+export interface Activity {
+  id: number;
+  title: string;
+  student: string;
+  time: string;
 }

@@ -50,7 +50,7 @@ export default function SectionHeader({
       </div>
 
       <>
-        {leftContent === "form" && <SearchForm />}
+        {leftContent === "form" && <SearchForm handleSearch={handleSearch} />}
 
         {leftContent === "download" && <DownloadButton />}
 

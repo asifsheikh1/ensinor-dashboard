@@ -16,7 +16,7 @@ export default function QuizCardsInGrades({
   const router = useRouter();
 
   const handleStartQuiz = (quiz: string) => {
-    router.push(`/dashboard/students/quizzes/assessment-quiz?quiz=${quiz}`);
+    router.push(`/dashboard/employees/quizzes/assessment-quiz?quiz=${quiz}`);
   };
 
   return (
