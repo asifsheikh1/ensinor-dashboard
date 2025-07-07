@@ -129,3 +129,12 @@ export interface Activity {
   student: string;
   time: string;
 }
+
+export interface BundleCourseTypes {
+  _id: string;
+  bundleName: string;
+  description: string;
+  includedCourses: string[];
+  price: number;
+  status: "active" | "inactive";
+}

@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { IoSearch } from "react-icons/io5";
 import {
   CreateNewCourseButton,
   DownloadButton,
@@ -25,6 +24,7 @@ interface SectionHeaderProps {
     name: "button" | "link" | "text";
     content: string;
     link?: string;
+    type?: 'fill' | 'outline' | 'text';
   };
 }
 
@@ -67,30 +67,27 @@ export default function SectionHeader({
           </div>
         )}
         {leftContent === "simpleSearchForm" && (
-          <div className="w-full flex items-center lg:justify-end gap-6">
-            <SimpleSearchForm handleSearch={handleSearch} />
-
-            {/* Option Button */}
-            {options?.name && options?.name === "button" && (
-              <>
-                {options?.link ? (
-                  <Link href={options.link}>
-                    <button
-                      className={`w-full text-left px-6 py-3.5 border border-yellow-primary flex items-center gap-2 text-black-primary rounded-lg cursor-pointer`}
-                    >
-                      {options.content}
-                    </button>
-                  </Link>
-                ) : (
-                  <button
-                    className={`w-fit text-left px-6 py-3.5 bg-yellow-primary flex items-center gap-2 text-black-primary rounded-lg cursor-pointer`}
-                  >
-                    {options.content}
-                  </button>
-                )}
-              </>
+          <SimpleSearchForm handleSearch={handleSearch} />
+        )}
+        {/* Option Button */}
+        {options?.name && options?.name === "button" && (
+          <>
+            {options?.link ? (
+              <Link href={options.link}>
+                <button
+                  className={`w-fit text-left px-6 py-3.5 ${options?.type === 'fill' ? 'bg-yellow-primary' : options?.type === 'outline' ? 'border border-yellow-primary' : ''}  flex items-center gap-2 text-black-primary font-semibold text-nowrap rounded-lg cursor-pointer`}
+                >
+                  {options.content}
+                </button>
+              </Link>
+            ) : (
+              <button
+                className={`w-fit text-left px-6 py-3.5 bg-yellow-primary flex items-center gap-2 text-black-primary font-semibold text-nowrap rounded-lg cursor-pointer`}
+              >
+                {options.content}
+              </button>
             )}
-          </div>
+          </>
         )}
       </>
     </section>

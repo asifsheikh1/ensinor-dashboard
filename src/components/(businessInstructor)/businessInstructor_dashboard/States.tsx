@@ -27,7 +27,7 @@ const states = [
 
 export default function States() {
   return (
-    <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-4 mb-6">
+    <section className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6 mb-6">
         {states.map((state) => (
           <div
             key={state.title}

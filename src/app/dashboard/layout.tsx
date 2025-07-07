@@ -11,7 +11,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="flex gap-0 h-screen overflow-hidden bg-gray-100">
       {/* Sidebar */}
-      <div className="hidden lg:block">
+      <div className={`${isSidebarOpen ? "block" : "hidden lg:block"} hidden`}>
         <Sidebar />
       </div>
       {/* Sidebar for Small & Medium devices */}
@@ -21,7 +21,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <div className="max-w-2/3 absolute z-20 border w-fit">
           {/* Cross button */}
           <div className="absolute right-3 top-3">
-            <button onClick={() => setIsSidebarOpen(false)}>
+            <button className="cursor-pointer" onClick={() => setIsSidebarOpen(false)}>
               <RxCross1 className="text-xl" />
             </button>
           </div>
@@ -29,9 +29,10 @@ export default function Layout({ children }: { children: React.ReactNode }) {
           <Sidebar />
         </div>
       </div>
+      
       {/* Main Content */}
       <main className="flex-1 overflow-y-auto">
-        <TopBar setIsSidebarOpen={setIsSidebarOpen} />
+        <TopBar isSidebarOpen={isSidebarOpen} setIsSidebarOpen={setIsSidebarOpen} />
         {children}
       </main>
     </div>
