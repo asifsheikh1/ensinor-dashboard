@@ -30,7 +30,8 @@ export default function Course() {
         <SectionHeader
           title="My Courses List"
           description=""
-          leftContent="createNewCourse"
+          leftContent="simpleSearchForm"
+          options={{name: 'link', content: 'Create a New Course', link: "/dashboard/instructors/courses/create-new-course", type: "fill"}}
         />
 
         {/* Table */}

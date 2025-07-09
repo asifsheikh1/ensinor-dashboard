@@ -12,7 +12,7 @@ const tabs = [
 ];
 
 export default function CreateNewCourse() {
-  const [activeTab, setActiveTab] = useState("Course details");
+  const [activeTab, setActiveTab] = useState("Course media");
 
   return (
     <div className="p-6 space-y-6">
@@ -21,7 +21,7 @@ export default function CreateNewCourse() {
       {/* Form */}
       <Card className="w-full border-none shadow-none bg-white p-0 py-6 md:p-6 md:py-12">
         {/* Course Details */}
-        {activeTab === tabs[0]?.name && <CourseDetails />}
+        {activeTab === tabs[0]?.name && <CourseDetails setActiveTab={setActiveTab} />}
         {activeTab === tabs[1]?.name && <CourseMedia />}
       </Card>
     </div>

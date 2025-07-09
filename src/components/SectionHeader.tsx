@@ -18,7 +18,6 @@ interface SectionHeaderProps {
     | "simpleSearchForm"
     | "download"
     | "viewCertification"
-    | "createNewCourse"
     | "null";
   options?: {
     name: "button" | "link" | "text";
@@ -49,31 +48,21 @@ export default function SectionHeader({
         </p>
       </div>
 
-      <>
+      <div className="flex items-center gap-6">
         {leftContent === "form" && <SearchForm handleSearch={handleSearch} />}
 
         {leftContent === "download" && <DownloadButton />}
 
         {leftContent === "viewCertification" && <ViewCertificationButton />}
 
-        {leftContent === "createNewCourse" && (
-          <div className="flex items-center gap-8">
-            {/* Search form */}
-            <SimpleSearchForm handleSearch={handleSearch} />
-            {/* Button */}
-            <Link href={"/dashboard/instructors/courses/create-new-course"}>
-              <CreateNewCourseButton />
-            </Link>
-          </div>
-        )}
         {leftContent === "simpleSearchForm" && (
           <SimpleSearchForm handleSearch={handleSearch} />
         )}
         {/* Option Button */}
-        {options?.name && options?.name === "button" && (
+        {options?.name && (
           <>
-            {options?.link ? (
-              <Link href={options.link}>
+            {options?.name === 'link' ? (
+              <Link href={options.link || '/'}>
                 <button
                   className={`w-fit text-left px-6 py-3.5 ${options?.type === 'fill' ? 'bg-yellow-primary' : options?.type === 'outline' ? 'border border-yellow-primary' : ''}  flex items-center gap-2 text-black-primary font-semibold text-nowrap rounded-lg cursor-pointer`}
                 >
@@ -89,7 +78,7 @@ export default function SectionHeader({
             )}
           </>
         )}
-      </>
+      </div>
     </section>
   );
 }

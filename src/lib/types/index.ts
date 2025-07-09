@@ -138,3 +138,12 @@ export interface BundleCourseTypes {
   price: number;
   status: "active" | "inactive";
 }
+
+export interface EventWebinarTypes {
+  title: string;
+  description: string;
+  date: string;
+  time: string;
+  people: number;
+  conferenceTool: string;
+}

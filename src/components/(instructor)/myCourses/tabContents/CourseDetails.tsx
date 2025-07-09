@@ -16,7 +16,11 @@ import { Textarea } from "@/components/ui/textarea";
 import JoditEditor from "jodit-react";
 import React, { useMemo, useRef, useState } from "react";
 
-export default function CourseDetails() {
+interface CourseDetailsProps {
+  setActiveTab: React.Dispatch<React.SetStateAction<string>>;
+}
+
+export default function CourseDetails({setActiveTab}: CourseDetailsProps) {
   const editor = useRef(null);
   const [content, setContent] = useState("");
 
@@ -28,10 +32,16 @@ export default function CourseDetails() {
     []
   );
 
+  const handleSubmit = (data: any) => {
+    console.log("Create course form data: ", data);
+
+    setActiveTab("Course media");
+  };
+
   return (
     <div>
       <CardContent>
-        <form className="text-lg grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
+        <form onSubmit={handleSubmit} className="text-lg grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
           {/* Course Title */}
           <div className="md:col-span-2 grid gap-3">
             <Label htmlFor="fullName" className=" text-lg">
@@ -169,7 +179,7 @@ export default function CourseDetails() {
           </div>
 
           <button className="col-span-2 w-full bg-yellow-primary text-black-primary text-lg font-medium py-3 rounded hover:bg-yellow-500 cursor-pointer">
-            Payment Now
+            Next
           </button>
         </form>
       </CardContent>
