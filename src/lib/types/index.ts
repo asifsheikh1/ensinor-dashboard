@@ -147,3 +147,14 @@ export interface EventWebinarTypes {
   people: number;
   conferenceTool: string;
 }
+
+export interface SpeakerTypes {
+  name: string;
+  designation: string;
+  thumbnail: string;
+}
+export interface EventScheduleTypes {
+  name: string;
+  date: string;
+  thumbnail: string;
+}
