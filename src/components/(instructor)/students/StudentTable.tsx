@@ -5,6 +5,8 @@ import Image from "next/image";
 import React from "react";
 import { CgUnblock } from "react-icons/cg";
 import { CiLocationOn } from "react-icons/ci";
+import { FaInfo } from "react-icons/fa";
+import { LuInfo } from "react-icons/lu";
 import { MdMailOutline } from "react-icons/md";
 
 interface StudentTableProps {
@@ -43,53 +45,62 @@ export default function StudentTable({
                     key={studentsData._id}
                     className="border-b border-[#606060]"
                   >
-                    {/* Course Name */}
+                    {/* Student Name & Image */}
                     <td className="px-6 py-4">
-                      <div className="flex items-center gap-2">
+                      <div className="w-full flex items-center gap-2">
                         <Image
                           src={studentsData.image}
                           alt={studentsData.studentName}
-                          width={62}
+                          width={48}
                           height={40}
-                          className="w-[62px] h-10 rounded-xs"
+                          className="w-12 h-12 rounded"
                         />
-                        <div className="space-y-2 text-black-primary">
-                            <p className="text-base font-semibold">{studentsData.studentName}</p>
-                            <p className="flex items-center gap-1">
-                                <CiLocationOn className="text-lg" />
-                                <span className="text-sm">{studentsData.address}</span>
-                            </p>
+                        <div className="w-full space-y-1 text-black-primary">
+                          <h5 className="text-black-primary font-semibold text-nowrap">{studentsData.studentName}</h5>
+                          <p className="flex items-center gap-1">
+                            <CiLocationOn className="text-lg" />
+                            <span className="text-sm">
+                              {studentsData.address}
+                            </span>
+                          </p>
                         </div>
+                      </div>
+                    </td>
+                    {/* Email */}
+                    <td className="px-6 py-4">
+                      <div>
+                        <p>{studentsData.email}</p>
+                      </div>
+                    </td>
+                    {/* Department */}
+                    <td className="px-6 py-4">
+                      <div>
+                        <span>{studentsData.department}</span>
+                      </div>
+                    </td>
+                    {/* Enrolled Courses */}
+                    <td className="px-6 py-4">
+                      <div>
+                        <p>{studentsData.enrolledCourses}</p>
                       </div>
                     </td>
                     {/* Progress */}
                     <td className="px-6 py-4">
                       <div>
-                        <p>{studentsData.progress}% Complete</p>
+                        <p>{studentsData.progress}</p>
                       </div>
                     </td>
-                    {/* Courses */}
+                    {/* Active */}
                     <td className="px-6 py-4">
                       <div>
-                        <span>
-                          {studentsData.courses}
-                        </span>
-                      </div>
-                    </td>
-                    {/* Enrolled date */}
-                    <td className="px-6 py-4">
-                      <div>
-                        <p>{studentsData.enrolledDate}</p>
+                        <p>{studentsData.active}</p>
                       </div>
                     </td>
                     {/* Action */}
                     <td className="px-6 py-4">
                       <div className="flex items-center gap-1">
-                        <button className="cursor-pointer  text-[#4BB54B] bg-[#C6E5C6] p-1.5 rounded-full">
-                          <MdMailOutline className="text-2xl" />
-                        </button>
-                        <button className="cursor-pointer  text-[#D70000] bg-[#FF53536B] p-1 rounded-full">
-                          <CgUnblock className="text-[26px]" />
+                        <button className="cursor-pointer">
+                          <LuInfo className="text-2xl" />
                         </button>
                       </div>
                     </td>

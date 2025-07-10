@@ -7,8 +7,8 @@ import React from "react";
 
 const studentsData: StudentTypes = {
   _id: "#0",
-  studentName: "Professional Graphic Design",
-  image: "/images/dashboard/courses/course-1.png",
+  studentName: "Shahid Hasan",
+  image: "/images/dashboard/student.png",
   address: "Dhaka",
   progress: 32,
   courses: 4300,
@@ -16,10 +16,12 @@ const studentsData: StudentTypes = {
 };
 
 const tHeads: string[] = [
-  "Courses Name",
-  "Enrolled",
-  "Status",
-  "Amount",
+  "Student Name",
+  "Email",
+  "Department",
+  "Courses",
+  "Progress",
+  "Active",
   "Action",
 ];
 
@@ -29,8 +31,8 @@ export default function Students() {
       <div className="p-6 bg-white rounded-xl">
         <div className="w-full flex items-center gap-6">
           <SectionHeader
-            title="My Students List"
-            description=""
+            title="Student"
+            description="Manage your learners and track their progress"
             leftContent="null"
             options={{
               name: "link",
