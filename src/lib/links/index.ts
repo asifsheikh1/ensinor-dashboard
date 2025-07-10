@@ -143,7 +143,7 @@ export const businessInstructorLinks: SidebarLink[] = [
   },
   {
     name: "Settings",
-    url: "/dashboard/students/settings",
+    url: "/dashboard/businessInstructor/settings",
     icon: "/icons/settings.svg",
   },
 ];

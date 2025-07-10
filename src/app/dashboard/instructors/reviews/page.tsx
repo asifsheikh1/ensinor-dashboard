@@ -3,7 +3,6 @@ import SectionHeader from "@/components/SectionHeader";
 import Image from "next/image";
 import React from "react";
 import { FiSend } from "react-icons/fi";
-import { IoSearch } from "react-icons/io5";
 
 export default function Reviews() {
   return (

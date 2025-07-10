@@ -1,3 +1,5 @@
+"use client";
+
 import ChangePasswordForm from "@/components/settings/ChangePasswordForm";
 import EditInformationForm from "@/components/settings/EditInformationForm";
 import Image from "next/image";

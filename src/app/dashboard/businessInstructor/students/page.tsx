@@ -1,3 +1,5 @@
+"use client";
+
 import StudentTable from "@/components/(instructor)/students/StudentTable";
 import { PaginationBar } from "@/components/custom-ui/paginations/PaginationBar";
 import SectionHeader from "@/components/SectionHeader";
@@ -8,11 +10,15 @@ import React from "react";
 const studentsData: StudentTypes = {
   _id: "#0",
   studentName: "Shahid Hasan",
+  email: "shahidhasan@gmail.com",
   image: "/images/dashboard/student.png",
   address: "Dhaka",
+  department: "Engineering",
+  enrolledCourses: 1,
+  courseName: "UX/UI Design",
   progress: 32,
-  courses: 4300,
-  enrolledDate: "28/05/2025",
+  active: "Yesterday",
+  enrolledDate: "2-05-2025"
 };
 
 const tHeads: string[] = [

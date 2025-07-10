@@ -23,7 +23,7 @@ interface SectionHeaderProps {
     name: "button" | "link" | "text";
     content: string;
     link?: string;
-    type?: 'fill' | 'outline' | 'text';
+    type?: "fill" | "outline" | "text";
   };
 }
 
@@ -59,25 +59,31 @@ export default function SectionHeader({
           <SimpleSearchForm handleSearch={handleSearch} />
         )}
         {/* Option Button */}
-        {options?.name && (
-          <>
-            {options?.name === 'link' ? (
-              <Link href={options.link || '/'}>
-                <button
-                  className={`w-fit text-left px-6 py-3.5 ${options?.type === 'fill' ? 'bg-yellow-primary' : options?.type === 'outline' ? 'border border-yellow-primary' : ''}  flex items-center gap-2 text-black-primary font-semibold text-nowrap rounded-lg cursor-pointer`}
-                >
-                  {options.content}
-                </button>
-              </Link>
-            ) : (
+        <>
+          {options?.name === "link" && (
+            <Link href={options.link || "/"}>
+              <button
+                className={`w-fit text-left px-6 py-3.5 ${
+                  options?.type === "fill"
+                    ? "bg-yellow-primary"
+                    : options?.type === "outline"
+                    ? "border border-yellow-primary"
+                    : ""
+                }  flex items-center gap-2 text-black-primary font-semibold text-nowrap rounded-lg cursor-pointer`}
+              >
+                {options.content}
+              </button>
+            </Link>
+          )}
+          {options?.name ===
+            "button" &&(
               <button
                 className={`w-fit text-left px-6 py-3.5 bg-yellow-primary flex items-center gap-2 text-black-primary font-semibold text-nowrap rounded-lg cursor-pointer`}
               >
                 {options.content}
               </button>
             )}
-          </>
-        )}
+        </>
       </div>
     </section>
   );

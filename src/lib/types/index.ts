@@ -88,10 +88,14 @@ export interface InstructorQuizTypes {
 export interface StudentTypes {
   _id: string;
   studentName: string;
+  email?: string;
   image: string;
   address: string;
+  department?: string;
   progress: number;
-  courses: number;
+  enrolledCourses: number;
+  courseName?: string;
+  active?: string;
   enrolledDate: string;
 }
 

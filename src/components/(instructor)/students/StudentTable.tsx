@@ -3,11 +3,8 @@
 import { StudentTypes } from "@/lib/types";
 import Image from "next/image";
 import React from "react";
-import { CgUnblock } from "react-icons/cg";
 import { CiLocationOn } from "react-icons/ci";
-import { FaInfo } from "react-icons/fa";
 import { LuInfo } from "react-icons/lu";
-import { MdMailOutline } from "react-icons/md";
 
 interface StudentTableProps {
   tHeads: string[];
@@ -68,7 +65,7 @@ export default function StudentTable({
                     </td>
                     {/* Email */}
                     <td className="px-6 py-4">
-                      <div>
+                      <div className="w-full">
                         <p>{studentsData.email}</p>
                       </div>
                     </td>
@@ -80,14 +77,15 @@ export default function StudentTable({
                     </td>
                     {/* Enrolled Courses */}
                     <td className="px-6 py-4">
-                      <div>
-                        <p>{studentsData.enrolledCourses}</p>
+                      <div className="w-full">
+                        <p className="text-nowrap">{studentsData.enrolledCourses} Enrolled</p>
+                        <p className="text-xs">{studentsData.courseName}</p>
                       </div>
                     </td>
                     {/* Progress */}
                     <td className="px-6 py-4">
                       <div>
-                        <p>{studentsData.progress}</p>
+                        <p>{studentsData.progress}% Completed</p>
                       </div>
                     </td>
                     {/* Active */}
