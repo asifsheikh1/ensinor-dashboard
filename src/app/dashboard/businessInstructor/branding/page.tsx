@@ -1,11 +1,30 @@
+"use client";
+
 import SectionHeader from "@/components/SectionHeader";
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import React from "react";
+import Image from "next/image";
+import React, { useEffect, useState } from "react";
 
 export default function Branding() {
+  const [uploadedLogo, setUploadedLogo] = useState<File | undefined>(undefined);
+  const [displayImageUrl, setDisplayImageUrl] = useState<
+    string | ArrayBuffer | null
+  >("");
+  console.log("Uploaded Logo: ", uploadedLogo);
+  console.log("displayImageUrl: ", displayImageUrl);
+
+  useEffect(() => {
+    if (uploadedLogo) {
+      const reader = new FileReader();
+      reader.readAsDataURL(uploadedLogo);
+      reader.onload = () => {
+        setDisplayImageUrl(reader.result);
+      };
+    }
+  }, [uploadedLogo]);
+
   return (
     <div className="p-6 space-y-6">
       {/* Section Header */}
@@ -57,10 +76,20 @@ export default function Branding() {
                   <Label htmlFor="name" className="text-lg">
                     Brand Logo
                   </Label>
-                  <div className="w-full h-[144px] border bg-gray-background rounded-md flex justify-center items-center">
-                    <p className="font-medium text-black-secondary">
-                      No logo uploaded
-                    </p>
+                  <div className="w-full h-[144px] p-2 border bg-gray-background rounded-md flex justify-center items-center">
+                    {displayImageUrl ? (
+                      <Image
+                        src={`${displayImageUrl}`}
+                        alt={uploadedLogo?.name || "Uploaded Image"}
+                        width={300}
+                        height={200}
+                        className="w-[200px] h-full rounded-md"
+                      />
+                    ) : (
+                      <p className="font-medium text-black-secondary">
+                        No logo uploaded
+                      </p>
+                    )}
                   </div>
                   {/* Upload File::Button */}
                   <div className="mt-2 w-fit">
@@ -68,13 +97,14 @@ export default function Branding() {
                       htmlFor="dropzone-file"
                       className="flex flex-col w-fit px-8 py-3 mx-auto text-center bg-gray-background border cursor-pointer dark:bg-gray-900 dark:border-gray-700 rounded-md"
                     >
-                      <h6 className="font-semibold">
-                        Upload logo
-                      </h6>
+                      <h6 className="font-semibold">Upload logo</h6>
 
                       <input
                         id="dropzone-file"
                         type="file"
+                        accept="image/*"
+                        max={1}
+                        onChange={(e) => setUploadedLogo(e.target.files?.[0])}
                         className="hidden"
                       />
                     </label>
